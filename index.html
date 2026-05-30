@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新征程上路桥工程技术创新与国家基础设施建设自强 问卷调查</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f0fe 0%, #f5f0ff 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    background: linear-gradient(135deg, #1a3a6c 0%, #2c5aa0 100%);
+    color: #fff;
+    padding: 40px 30px 30px;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 4px 20px rgba(26,58,108,0.3);
+  }
+  .header h1 {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .header p {
+    font-size: 14px;
+    opacity: 0.85;
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .form-body {
+    background: #fff;
+    padding: 10px 30px 30px;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8e8e8;
+  }
+  .section-title .badge {
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .badge-single { background: #2c5aa0; }
+  .badge-multi { background: #e67e22; }
+  .badge-tf { background: #27ae60; }
+  .badge-subj { background: #8e44ad; }
+  .section-title span:not(.badge) {
+    font-size: 15px;
+    color: #888;
+  }
+
+  .question-card {
+    background: #fafbfc;
+    border: 1px solid #eef0f2;
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s;
+  }
+  .question-card:hover {
+    box-shadow: 0 2px 12px rgba(44,90,160,0.08);
+  }
+  .q-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a3a6c;
+    margin-bottom: 14px;
+    line-height: 1.7;
+  }
+  .q-title .q-num {
+    display: inline-block;
+    background: #2c5aa0;
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 13px;
+    margin-right: 8px;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .options label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.6;
+    transition: background 0.15s;
+    border: 1px solid transparent;
+  }
+  .options label:hover {
+    background: #eef3fb;
+    border-color: #c8d8ee;
+  }
+  .options input[type="radio"],
+  .options input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: #2c5aa0;
+    flex-shrink: 0;
+  }
+  .options label.selected {
+    background: #eef3fb;
+    border-color: #a8c4e0;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 110px;
+    border: 1px solid #dce0e4;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 14px;
+    font-family: inherit;
+    line-height: 1.7;
+    resize: vertical;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  textarea:focus {
+    border-color: #2c5aa0;
+    box-shadow: 0 0 0 3px rgba(44,90,160,0.1);
+  }
+
+  .submit-wrap {
+    text-align: center;
+    margin: 36px 0 10px;
+  }
+  .submit-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #1a3a6c 0%, #2c5aa0 100%);
+    color: #fff;
+    border: none;
+    padding: 14px 60px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 15px rgba(26,58,108,0.3);
+  }
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26,58,108,0.4);
+  }
+  .submit-btn:active { transform: translateY(0); }
+
+  .progress-bar-wrap {
+    background: #e8e8e8;
+    border-radius: 10px;
+    height: 8px;
+    margin: 20px 30px 0;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #2c5aa0, #27ae60);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+  }
+  .progress-text {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-top: 6px;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: #aaa;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.45);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-overlay.show { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    max-width: 400px;
+    animation: popIn 0.3s ease;
+  }
+  @keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .modal-box .icon { font-size: 56px; margin-bottom: 16px; }
+  .modal-box h3 { font-size: 20px; color: #1a3a6c; margin-bottom: 8px; }
+  .modal-box p { font-size: 14px; color: #666; line-height: 1.6; }
+  .modal-box button {
+    margin-top: 20px;
+    padding: 10px 36px;
+    border: none;
+    background: #2c5aa0;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 10px; }
+    .header { padding: 24px 16px 20px; }
+    .header h1 { font-size: 18px; }
+    .form-body { padding: 10px 14px 24px; }
+    .question-card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>🌉 新征程上路桥工程技术创新<br>与国家基础设施建设自强</h1>
+    <p>尊敬的受访者，您好！本问卷旨在了解行业从业者及社会公众对路桥工程技术创新与国家基础设施建设自强的认识与看法，您的回答仅用于学术研究，感谢您的支持与配合！</p>
+  </div>
+
+  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
+  <div class="progress-text" id="progressText">已完成 0 / 20 题</div>
+
+  <form class="form-body" id="surveyForm" onsubmit="return false;">
+
+    <!-- ====== 单选题 ====== -->
+    <div class="section-title">
+      <span class="badge badge-single">单选题</span>
+      <span>每题仅选一个选项（第1–10题）</span>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">1</span>您认为当前我国路桥工程建设在国际上的整体水平处于什么阶段？</div>
+      <div class="options">
+        <label><input type="radio" name="q1" value="A">A. 全面领先</label>
+        <label><input type="radio" name="q1" value="B">B. 部分领域领先，整体处于并跑阶段</label>
+        <label><input type="radio" name="q1" value="C">C. 跟随追赶阶段</label>
+        <label><input type="radio" name="q1" value="D">D. 不了解</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">2</span>您认为推动路桥工程技术创新的核心驱动力是什么？</div>
+      <div class="options">
+        <label><input type="radio" name="q2" value="A">A. 国家政策与资金投入</label>
+        <label><input type="radio" name="q2" value="B">B. 企业自主研发与市场竞争</label>
+        <label><input type="radio" name="q2" value="C">C. 重大工程需求倒逼</label>
+        <label><input type="radio" name="q2" value="D">D. 国际技术合作与引进</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">3</span>您认为以下哪项技术对我国路桥工程创新的贡献最为突出？</div>
+      <div class="options">
+        <label><input type="radio" name="q3" value="A">A. BIM（建筑信息模型）技术</label>
+        <label><input type="radio" name="q3" value="B">B. 装配式桥梁建造技术</label>
+        <label><input type="radio" name="q3" value="C">C. 超大跨径桥梁设计技术</label>
+        <label><input type="radio" name="q3" value="D">D. 智能监测与养护技术</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">4</span>您认为"自强"在基础设施建设中最核心的内涵是什么？</div>
+      <div class="options">
+        <label><input type="radio" name="q4" value="A">A. 完全依靠国产设备和材料</label>
+        <label><input type="radio" name="q4" value="B">B. 掌握核心技术，不受制于人</label>
+        <label><input type="radio" name="q4" value="C">C. 减少对外投资，专注国内建设</label>
+        <label><input type="radio" name="q4" value="D">D. 降低建设标准以实现自主可控</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">5</span>您认为目前路桥工程领域最亟需突破的"卡脖子"技术是哪一项？</div>
+      <div class="options">
+        <label><input type="radio" name="q5" value="A">A. 高性能桥梁钢与特种材料</label>
+        <label><input type="radio" name="q5" value="B">B. 大型施工装备核心零部件</label>
+        <label><input type="radio" name="q5" value="C">C. 高精度测量与传感芯片</label>
+        <label><input type="radio" name="q5" value="D">D. 工程设计仿真软件</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">6</span>在路桥工程绿色低碳转型中，您认为最具推广价值的措施是？</div>
+      <div class="options">
+        <label><input type="radio" name="q6" value="A">A. 使用再生材料与低碳混凝土</label>
+        <label><input type="radio" name="q6" value="B">B. 优化设计减少材料用量</label>
+        <label><input type="radio" name="q6" value="C">C. 施工过程节能减排</label>
+        <label><input type="radio" name="q6" value="D">D. 桥梁全生命周期碳管理</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">7</span>您认为智慧公路建设中最具应用前景的技术是？</div>
+      <div class="options">
+        <label><input type="radio" name="q7" value="A">A. 车路协同（V2X）系统</label>
+        <label><input type="radio" name="q7" value="B">B. 路面健康自动感知系统</label>
+        <label><input type="radio" name="q7" value="C">C. 5G+北斗高精定位</label>
+        <label><input type="radio" name="q7" value="D">D. 无人机巡检与AI识别</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">8</span>您认为影响青年工程技术人员创新能力培养的最大障碍是？</div>
+      <div class="options">
+        <label><input type="radio" name="q8" value="A">A. 实践锻炼机会不足</label>
+        <label><input type="radio" name="q8" value="B">B. 创新激励机制不完善</label>
+        <label><input type="radio" name="q8" value="C">C. 跨学科知识储备不够</label>
+        <label><input type="radio" name="q8" value="D">D. 科研与工程应用脱节</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">9</span>您认为大型跨海通道工程对国家基础设施自强的最大意义在于？</div>
+      <div class="options">
+        <label><input type="radio" name="q9" value="A">A. 带动全产业链技术升级</label>
+        <label><input type="radio" name="q9" value="B">B. 提升国家战略通道保障能力</label>
+        <label><input type="radio" name="q9" value="C">C. 展示国家综合实力与国际影响力</label>
+        <label><input type="radio" name="q9" value="D">D. 促进区域经济一体化发展</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">10</span>您认为路桥工程技术创新未来五年的重点方向是？</div>
+      <div class="options">
+        <label><input type="radio" name="q10" value="A">A. 数字化与智能化建造</label>
+        <label><input type="radio" name="q10" value="B">B. 极端环境工程建设</label>
+        <label><input type="radio" name="q10" value="C">C. 既有设施检测与加固改造</label>
+        <label><input type="radio" name="q10" value="D">D. 新材料与新结构研发</label>
+      </div>
+    </div>
+
+    <!-- ====== 多选题 ====== -->
+    <div class="section-title">
+      <span class="badge badge-multi">多选题</span>
+      <span>每题可选多个选项（第11–16题）</span>
+    </div>
+
+    <div class="question-card" data-type="multi">
+      <div class="q-title"><span class="q-num">11</span>您认为以下哪些因素制约了我国路桥工程关键技术的自主可控？</div>
+      <div class="options">
+        <label><input type="checkbox" name="q11" value="A">A. 核心基础零部件依赖进口</label>
+        <label><input type="checkbox" name="q11" value="B">B. 工业软件自主化程度低</label>
+        <label><input type="checkbox" name="q11" value="C">C. 高端工程人才储备不足</label>
+        <label><input type="checkbox" name="q11" value="D">D. 产学研协同机制不畅</label>
+        <label><input type="checkbox" name="q11" value="E">E. 行业标准体系滞后于技术发展</label>
+        <label><input type="checkbox" name="q11" value="F">F. 企业创新投入意愿不足</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="multi">
+      <div class="q-title"><span class="q-num">12</span>您认为以下哪些属于路桥工程领域的重大自主创新成果？</div>
+      <div class="options">
+        <label><input type="checkbox" name="q12" value="A">A. 港珠澳大桥跨海集群工程</label>
+        <label><input type="checkbox" name="q12" value="B">B. G3长江大桥超大跨度斜拉桥</label>
+        <label><input type="checkbox" name="q12" value="C">C. 张靖皋长江大桥（世界最大跨度悬索桥在建）</label>
+        <label><input type="checkbox" name="q12" value="D">D. 高原冻土区高速公路建造技术</label>
+        <label><input type="checkbox" name="q12" value="E">E. 超大型盾构机国产化</label>
+        <label><input type="checkbox" name="q12" value="F">F. 桥梁健康监测物联网平台</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="multi">
+      <div class="q-title"><span class="q-num">13</span>您认为推动路桥工程领域"自强"应重点加强哪些方面？</div>
+      <div class="options">
+        <label><input type="checkbox" name="q13" value="A">A. 关键核心技术攻关</label>
+        <label><input type="checkbox" name="q13" value="B">B. 国产工程软件开发</label>
+        <label><input type="checkbox" name="q13" value="C">C. 自主标准体系建设</label>
+        <label><input type="checkbox" name="q13" value="D">D. 高端装备与材料国产替代</label>
+        <label><input type="checkbox" name="q13" value="E">E. 国际话语权与标准输出</label>
+        <label><input type="checkbox" name="q13" value="F">F. 复合型创新人才培养</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="multi">
+      <div class="q-title"><span class="q-num">14</span>您认为在路桥工程数字化转型中，以下哪些技术最为关键？</div>
+      <div class="options">
+        <label><input type="checkbox" name="q14" value="A">A. 数字孪生技术</label>
+        <label><input type="checkbox" name="q14" value="B">B. 人工智能与大数据分析</label>
+        <label><input type="checkbox" name="q14" value="C">C. 物联网传感器网络</label>
+        <label><input type="checkbox" name="q14" value="D">D. 3D打印建造技术</label>
+        <label><input type="checkbox" name="q14" value="E">E. 云计算与边缘计算平台</label>
+        <label><input type="checkbox" name="q14" value="F">F. 区块链工程档案管理</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="multi">
+      <div class="q-title"><span class="q-num">15</span>您认为提升路桥工程质量与安全水平的有效途径包括？</div>
+      <div class="options">
+        <label><input type="checkbox" name="q15" value="A">A. 推行全生命周期质量追溯</label>
+        <label><input type="checkbox" name="q15" value="B">B. 加强第三方独立检测机制</label>
+        <label><input type="checkbox" name="q15" value="C">C. 强化施工人员技能培训与认证</label>
+        <label><input type="checkbox" name="q15" value="D">D. 推广智能监控与预警系统</label>
+        <label><input type="checkbox" name="q15" value="E">E. 提高设计规范安全储备系数</label>
+        <label><input type="checkbox" name="q15" value="F">F. 建立工程质量终身责任制</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="multi">
+      <div class="q-title"><span class="q-num">16</span>您认为以下哪些措施有助于促进路桥工程领域的产学研深度融合？</div>
+      <div class="options">
+        <label><input type="checkbox" name="q16" value="A">A. 建立企业主导的技术创新联盟</label>
+        <label><input type="checkbox" name="q16" value="B">B. 设立以工程问题为导向的联合实验室</label>
+        <label><input type="checkbox" name="q16" value="C">C. 推行高校教师到企业挂职制度</label>
+        <label><input type="checkbox" name="q16" value="D">D. 将工程应用成果纳入科研评价体系</label>
+        <label><input type="checkbox" name="q16" value="E">E. 政府设立专项引导基金</label>
+        <label><input type="checkbox" name="q16" value="F">F. 建设行业共享数据与试验平台</label>
+      </div>
+    </div>
+
+    <!-- ====== 判断题 ====== -->
+    <div class="section-title">
+      <span class="badge badge-tf">判断题</span>
+      <span>请判断对错（第17–20题）</span>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">17</span>我国已建成的桥梁总里程和跨径纪录均位居世界第一，这意味着我国在路桥工程所有关键技术上都已实现完全自主可控。</div>
+      <div class="options">
+        <label><input type="radio" name="q17" value="A">A. 正确</label>
+        <label><input type="radio" name="q17" value="B">B. 错误</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">18</span>装配式桥梁建造技术的核心优势在于减少现场湿作业、缩短工期、提高质量可控性，是未来桥梁工业化发展的重要方向。</div>
+      <div class="options">
+        <label><input type="radio" name="q18" value="A">A. 正确</label>
+        <label><input type="radio" name="q18" value="B">B. 错误</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">19</span>基础设施领域的技术标准只是参考性文件，对推动产业自强和技术创新没有实质性作用。</div>
+      <div class="options">
+        <label><input type="radio" name="q19" value="A">A. 正确</label>
+        <label><input type="radio" name="q19" value="B">B. 错误</label>
+      </div>
+    </div>
+
+    <div class="question-card" data-type="single">
+      <div class="q-title"><span class="q-num">20</span>在路桥工程领域，国际合作与自主创新是相互矛盾的，强调"自强"就意味着要减少国际合作。</div>
+      <div class="options">
+        <label><input type="radio" name="q20" value="A">A. 正确</label>
+        <label><input type="radio" name="q20" value="B">B. 错误</label>
+      </div>
+    </div>
+
+    <!-- ====== 主观题 ====== -->
+    <div class="section-title">
+      <span class="badge badge-subj">主观题</span>
+      <span>请简要作答（第21–23题）</span>
+    </div>
+
+    <div class="question-card" data-type="subjective">
+      <div class="q-title"><span class="q-num">21</span>请结合您所在单位或地区的实际情况，谈谈路桥工程技术创新面临的主要困难与挑战，以及您认为可行的应对策略。</div>
+      <textarea name="q21" placeholder="请输入您的回答..."></textarea>
+    </div>
+
+    <div class="question-card" data-type="subjective">
+      <div class="q-title"><span class="q-num">22</span>您如何看待"新型举国体制"在路桥工程核心技术攻关中的作用？请举例说明如何更好地发挥其制度优势。</div>
+      <textarea name="q22" placeholder="请输入您的回答..."></textarea>
+    </div>
+
+    <div class="question-card" data-type="subjective">
+      <div class="q-title"><span class="q-num">23</span>在新征程背景下，您认为路桥工程从业者应具备哪些素质与能力，才能更好地服务于国家基础设施建设自强？请谈谈您的看法。</div>
+      <textarea name="q23" placeholder="请输入您的回答..."></textarea>
+    </div>
+
+    <div class="submit-wrap">
+      <button type="button" class="submit-btn" onclick="submitSurvey()">提 交 问 卷</button>
+    </div>
+  </form>
+
+  <div class="footer">本问卷仅用于学术研究，感谢您的参与！</div>
+</div>
+
+<!-- 提交成功弹窗 -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-box">
+    <div class="icon">✅</div>
+    <h3>提交成功！</h3>
+    <p>感谢您的认真作答，<br>您的反馈对我们非常重要！</p>
+    <button onclick="closeModal()">确 定</button>
+  </div>
+</div>
+
+<script>
+  // 高亮选中项 + 更新进度
+  document.querySelectorAll('.options label').forEach(label => {
+    label.addEventListener('click', function() {
+      const parent = this.closest('.options');
+      const type = this.querySelector('input').type;
+      if (type === 'radio') {
+        parent.querySelectorAll('label').forEach(l => l.classList.remove('selected'));
+        this.classList.add('selected');
+      } else {
+        this.classList.toggle('selected');
+      }
+      updateProgress();
+    });
+  });
+
+  // 文本框输入也更新进度
+  document.querySelectorAll('textarea').forEach(t => {
+    t.addEventListener('input', updateProgress);
+  });
+
+  function updateProgress() {
+    const totalChoice = 20; // 客观题数
+    const totalSubj = 3;
+    let done = 0;
+
+    // 统计客观题
+    for (let i = 1; i <= 20; i++) {
+      const name = 'q' + i;
+      const inputs = document.querySelectorAll(`[name="${name}"]`);
+      if (inputs.length === 0) continue;
+      if (inputs[0].type === 'radio') {
+        if (document.querySelector(`[name="${name}"]:checked`)) done++;
+      } else if (inputs[0].type === 'checkbox') {
+        if (document.querySelector(`[name="${name}"]:checked`)) done++;
+      }
+    }
+    // 统计主观题
+    document.querySelectorAll('textarea').forEach(t => {
+      if (t.value.trim().length > 0) done++;
+    });
+
+    const total = totalChoice + totalSubj;
+    const pct = Math.round((done / total) * 100);
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressText').textContent = `已完成 ${done} / ${total} 题（${pct}%）`;
+  }
+
+  function submitSurvey() {
+    document.getElementById('successModal').classList.add('show');
+  }
+  function closeModal() {
+    document.getElementById('successModal').classList.remove('show');
+  }
+</script>
+</body>
+</html>
